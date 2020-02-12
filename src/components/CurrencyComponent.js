@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const CurrencyComponent = () => {
-  const [data, setData] = useState();
-  const uri = `https://api.exchangeratesapi.io/latest`;
-  useEffect(() => {
-    fetch(uri)
-      .then(res => res.json())
-      .then(response => setData(response.rates));
-  }, []);
-
-  console.log(data);
-
+const CurrencyComponent = ({ selectedCurrency, data, onChangeCurrency, amount, onchangeInput }) => {
+    
   return (
     <>
       <div>
-        <input type='number' placeholder='dollar' />
-        <select>
-          {data && Object.keys(data).map(d => (
-            <option value={d}>{d}</option>
+        <input type='number' placeholder='dollar' value={amount} onChange={onchangeInput} />
+        <select value={selectedCurrency} onChange={onChangeCurrency}>
+          {data.map(d => (
+            <option key={d} value={d}>
+              {d}
+            </option>
           ))}
         </select>
       </div>
