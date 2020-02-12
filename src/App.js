@@ -57,7 +57,8 @@ function App() {
     setAmountFromCurrency(false);
   };
   return (
-    <div className='App'>
+    <>
+    <div className='app'>
       <h1>Currency Converter</h1>
       <CurrencyComponent
         data={data}
@@ -75,6 +76,7 @@ function App() {
         onchangeInput={onChange2}
       />
     </div>
+    </>
   );
 }
 

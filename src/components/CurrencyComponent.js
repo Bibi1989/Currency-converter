@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 const CurrencyComponent = ({ selectedCurrency, data, onChangeCurrency, amount, onchangeInput }) => {
     
   return (
     <>
-      <div>
+      <div className="input-div">
         <input type='number' placeholder='dollar' value={amount} onChange={onchangeInput} />
         <select value={selectedCurrency} onChange={onChangeCurrency}>
           {data.map(d => (
